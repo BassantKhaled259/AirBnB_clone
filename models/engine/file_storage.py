@@ -2,7 +2,7 @@
 """Storage module for storing the date as JSON format
 """
 
-from models.all_models import our_models
+from models.all_models import all_models
 import json
 import os
 
