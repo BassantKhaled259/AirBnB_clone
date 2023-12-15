@@ -1,13 +1,11 @@
 #!/usr/bin/python3
-"""Defines a class Base"""
+"""Defines a class Base."""
 import uuid
 from datetime import datetime
 import models
 
-
 class BaseModel:
-    """ Class that defines properties of base """
-
+    """ Defines properties of Base """
     def __init__(self, *args, **kwargs):
         """ Creates new instances of Base """
         if not kwargs:
@@ -24,25 +22,25 @@ class BaseModel:
                     self.__dict__[key] = value
 
     def __str__(self):
-        """Returns a string represation of class details.
+        """string represent of instance
         """
         string = "["
         string += str(self.__class__.__name__) + '] ('
         string += str(self.id) + ') ' + str(self.__dict__)
         return string
-
+    
     def save(self):
-        """Update public instance attribute updated_at with current datetime.
+        """Update the public instance with current datetime.
         """
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        """Returns a dictionary containing all key/values of __dict__ of
-        the instance.
+        """Returns a dictionary contains all keys - values /
+        in instance from __dict__ .
         """
-        model_dict_ = self.__dict__.copy()
-        model_dict_['__class__'] = self.__class__.__name__
-        model_dict_['created_at'] = self.created_at.isoformat()
-        model_dict_['updated_at'] = self.updated_at.isoformat()
-        return model_dict_
+        dict_ = self.__dict__.copy()
+        dict_['__class__'] = self.__class__.__name__
+        dict_['created_at'] = self.created_at.isoformat()
+        dict_['updated_at'] = self.updated_at.isoformat()
+        return dict_

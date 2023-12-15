@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-"""Review sub-class that inherit from BaseModel
-"""
+"""Defines a class Review  that inherits from BaseModel"""
 from models.base_model import BaseModel
 
 
-class Review(BaseModel):
-    """sub class that inherit from BaseModel
+class Review (BaseModel):
+    """Class that defines properties of Review .
     """
     place_id = ""
     user_id = ""
