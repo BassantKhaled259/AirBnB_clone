@@ -15,6 +15,7 @@ from models.place import Place
 from models.review import Review
 import shlex
 
+
 class HBNBCommand(cmd.Cmd):
     """class for command processor.
     """
@@ -123,7 +124,6 @@ class HBNBCommand(cmd.Cmd):
         objects = models.storage.all()
         models.storage.delete(objects[string_key])
         models.storage.save()
-
 
     def do_update(self, line):
         """ Updates an instance based on the class name and id by adding or
