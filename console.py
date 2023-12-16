@@ -15,7 +15,6 @@ from models.place import Place
 from models.review import Review
 import shlex
 
-
 class HBNBCommand(cmd.Cmd):
     """class for command processor.
     """
@@ -57,10 +56,8 @@ class HBNBCommand(cmd.Cmd):
         class name and id.
         """
         args = line.split()
-
         if not self.class_verification(args):
             return
-
         if not self.id_verification(args):
             return
 
@@ -75,11 +72,9 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             print("** class name missing **")
             return False
-
         if args[0] not in cls.classes_list:
             print("** class doesn't exist **")
             return False
-
         return True
 
     @staticmethod
@@ -89,13 +84,11 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 2:
             print("** instance id missing **")
             return False
-
         objects = models.storage.all()
         string_key = str(args[0]) + '.' + str(args[1])
         if string_key not in objects.keys():
             print("** no instance found **")
             return False
-
         return True
 
     def do_all(self, line):
@@ -108,7 +101,6 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             for value in all_objects.values():
                 list_.append(str(value))
-
         elif args[0] in self.classes_list:
             for (key, value) in all_objects.items():
                 if args[0] in key:
